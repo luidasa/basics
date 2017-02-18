@@ -1,0 +1,54 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Partidas de la orden {{ orden.id }} de embarque
+  </div>
+  <div class="panel-body">
+    <div class="dataTable_wrapper">
+      <table width="100%" class="table table-striped table-bordered table-hover tabla" id="materiales">
+        <thead>
+          <tr>
+            <th>N/P</th>
+            <th>Descripción</th>
+            <th>Cantidad</th>
+            <th>PO</th>
+            <th>Lote</th>
+            <th>Precio unitario</th>
+            <th>Peso neto</th>
+            <th>Peso bruto</th>
+            <th>Id Pallets</th>
+            <th>Id Caja</th>
+            {% if not readOnly %}
+            <th>Editar</th>
+            <th>Borrar</th>
+            {% endif %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for partida in partidas %}
+          <tr class="{{ loop.index % 2 == 0 ? 'odd' : 'even' }}">
+            <td>{{ partida.np }}</td>
+            <td>{{ partida.descripcion }}</td>
+            <td>{{ partida.cantidad | number_format(0, ".", ",") }}</td>
+            <td>{{ partida.po }}</td>
+            <td>{{ partida.lote }}</td>
+            <td>{{ partida.precio_unitario | number_format(2, ".", ",") }}</td>
+            <td>{{ partida.peso_neto }}</td>
+            <td>{{ partida.peso_bruto }}</td>
+            <td>{{ partida.id_pallet }}</td>
+            <td>{{ partida.id_caja }}</td>
+            {% if not readOnly %}
+            <td style="text-align: center;"><a href="{{ path_for('registration.item.edit', {'orden_id':orden.id, 'partida_id':partida.id}) }}"><span class="fa fa-edit"/></a></td>
+            <td style="text-align: center;"><a href="{{ path_for('registration.item.delete', {'partida_id':partida.id}) }}"><span class="fa fa-trash"/></a></td>
+            {% endif %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="panel-footer">
+    {% if not readOnly and orden is not null %}
+    <a href="{{ path_for('registration.item.add', {'orden_id':orden.id}) }}" class="btn btn-primary" ><i class="fa fa-plus"></i></a>
+    {% endif %}
+  </div>
+</div>

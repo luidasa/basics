@@ -1,0 +1,124 @@
+<div class="row">
+  <div class="col-lg-6">
+    <div class="form-group">
+      <label for="orden" class="col-sm-3 control-label">Orden</label>
+      <div class="col-sm-9">
+        <select class="form-control" name="orden" id="orden" autofocus>
+          {% for orden in ordenes if orden.proceso.tareaActual.estado.nombre == 'En captura' %}
+            <option value="{{ orden.id }}" data-destinatario="{{ orden.destinatario.id }}">{{ orden.destinatario.nombre }}</option>
+          {% endfor %}
+          <option value="">Nueva</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="pedimento" class="col-sm-3 control-label">Pedimento</label>
+      <div class="col-sm-9">
+        <input type="text" required readonly="readonly" class="form-control" id="pedimento" name="pedimento" value="{{ producto.numero_pedimento }}"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="destinatario" class="col-sm-3 control-label">Destinatario</label>
+      <div class="col-sm-9">
+        <select class="form-control" required name="destinatario" id="destinatario">
+          {% for destinatario in destinatarios %}
+            <option value="{{ destinatario.id }}">{{ destinatario.nombre }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="form-group">
+      <label for="fechaExtraccion" class="col-sm-3 control-label">Fecha de extracción</label>
+      <div class="col-sm-9">
+        <input type="text" readonly enabled="false" class="form-control fecha" id="fechaExtraccion" name="fechaExtraccion" placeholder="Fecha de extracción" value="{{ now | date('d/m/Y') }}"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="observaciones" class="col-sm-3 control-label">Observaciones</label>
+      <div class="col-sm-9">
+        <textarea name="observaciones" rows="4" cols="40" class="form-control"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row well">
+  <div class="col-lg-6">
+    <div class="form-group">
+      <label for="numeroParte" class="col-sm-3 control-label">N/P</label>
+      <div class="col-sm-9">
+        <input type="text" readonly maxlength="20" required autofocus class="form-control" id="numeroParte" name="numeroParte" placeholder="Numero de parte" value="{{ producto.np }}"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="descripcion" class="col-sm-3 control-label">Descripción</label>
+      <div class="col-sm-9">
+        <input type="text" readonly maxlength="50" required class="form-control" id="descripcion" name="descripcion" placeholder="Descripción" value="{{ producto.descripcion }}"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="cantidad" class="col-sm-3 control-label">Cantidad</label>
+      <div class="col-sm-9">
+        <input type="number" max="{{ producto.cantidad_actual }}" min="1" required class="form-control" id="cantidad" data-cantidad="{{ producto.cantidad }}" name="cantidad" placeholder="Numero de piezas" value="0"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="po" class="col-sm-3 control-label">PO</label>
+      <div class="col-sm-9">
+        <input type="number" readonly maxlength="50" required class="form-control" id="po" name="po" placeholder="Numero de parte" value="{{ producto.po }}"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="lote" class="col-sm-3 control-label">Lote</label>
+      <div class="col-sm-9">
+        <input type="number" required class="form-control" id="lote" name="lote" placeholder="Numero de Lote" value="{{ producto.lote }}"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="precioUnitario" class="col-sm-3 control-label">Precio unitario</label>
+      <div class="col-sm-9">
+        <input type="number" step="0.000001" min="{{ producto.precio_unitario }}" required class="form-control" id="precioUnitario" name="precioUnitario" placeholder="Precio unitario" value="0"/>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="form-group">
+      <label for="wsr" class="col-sm-3 control-label">WSR</label>
+      <div class="col-sm-9">
+        <input type="text" maxlength="20" required autofocus class="form-control" id="wsr" name="wsr" placeholder="WSR"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="pesoNeto" class="col-sm-3 control-label">Peso neto</label>
+      <div class="col-sm-9">
+        <input type="number" readonly maxlength="10" class="form-control" id="pesoNeto" name="pesoNeto" data-pesoneto="{{ producto.peso_neto }}" placeholder="Peso neto" value="0"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="pesoBruto" class="col-sm-3 control-label">Peso Bruto</label>
+      <div class="col-sm-9">
+        <input type="number" readonly maxlength="10" class="form-control" id="pesoBruto" name="pesoBruto" data-pesobruto="{{ producto.peso_bruto }}" placeholder="Peso bruto" value="0"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="idPallets" class="col-sm-3 control-label">Id. de palets</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="idPallets" name="idPallets" placeholder="Identificador de pallets entre {{ producto.id_pallet }}" value=""/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="cajas" class="col-sm-3 control-label">Id. de cajas</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="idCajas" name="idCajas" placeholder="Identificador de cajas entre {{ producto.id_caja }}" value=""/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="precioTotal" class="col-sm-3 control-label">Precio total</label>
+      <div class="col-sm-9">
+        <input type="number" step="0.000001" readonly class="form-control" id="precioTotal" name="precioTotal" placeholder="Precio total"/>
+      </div>
+    </div>
+  </div>
+</div>
+<input type="hidden" id="producto_id" name="producto_id" value="{{ producto.id }}"/>

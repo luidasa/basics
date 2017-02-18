@@ -1,0 +1,51 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Ordenes de extracción recibidas
+  </div>
+  <!-- /.panel-heading -->
+  <div class="panel-body">
+    <div class="dataTable_wrapper">
+      <table width="100%" class="table table-striped table-bordered table-hover tabla" id="ordenes">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Consecutivo</th>
+            <th>Pedimento</th>
+            <th>WSR</th>
+            <th>Fecha</th>
+            <th>Destinatario</th>
+            <th>NP</th>
+            <th>Piezas</th>
+            <th>Lote</th>
+            <th>Id pallet</th>
+            <th>Id caja</th>
+            <th>Editar</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for partida in partidas %}
+            <tr class="{{ loop.index % 2 == 0 ? 'odd' : 'even' }}">
+              <td>{{ partida.salida.id }}</td>
+              <td>{{ partida.salida.consecutivo }}</td>
+              <td>{{ partida.salida.numero_pedimento }}</td>
+              <td>{{ partida.wsr }}</td>
+              <td>{{ partida.salida.fecha_extraccion | date('d/m/Y') }}</td>
+              <td>{{ partida.salida.destinatario.nombre }}</td>
+              <td>{{ partida.np }}</td>
+              <td>{{ partida.cantidad | number_format(2, ',', '.') }}</td>
+              <td>{{ partida.lote }}</td>
+              <td>{{ partida.id_pallet }}</td>
+              <td>{{ partida.id_caja }}</td>
+              <td style="text-align: center;">
+                <a href="{{ path_for('extraction.edit', {'id' : partida.salida.id }) }}"><span class="fa fa-edit"></span></a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="panel-footer">
+      <a href="{{ path_for('extraction.add') }}" class="btn btn-primary btn-default"><span class="fa fa-plus"></span> Agregar</a>
+    </div>
+  </div>
+</div>

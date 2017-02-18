@@ -1,0 +1,42 @@
+<div class="col-lg-6">
+  <div class="form-group">
+    <label for="destinatario" class="col-sm-3 control-label">Destinatario</label>
+    <div class="col-sm-9">
+      <select {{ orden.partidas | length > 0 ? 'readonly' }} class="form-control" required name="destinatario" id="destinatario">
+        {% for destinatario in destinatarios %}
+          <option value="{{ destinatario.id }}" {{ orden.destinatario.id == destinatario.id ? 'selected'}}>{{ destinatario.nombre }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="pedimento" class="col-sm-3 control-label">Pedimento</label>
+    <div class="col-sm-9">
+      <input {{ orden.partidas | length > 0 ? 'readonly' }} type="text" maxlength="30" required class="form-control" id="pedimento" name="pedimento" placeholder="Numero de pedimento" value="{{ orden.numero_pedimento }}"/>
+    </div>
+  </div>
+</div>
+<div class="col-lg-6">
+  <div class="form-group">
+    <label for="fechaExtraccion" class="col-sm-3 control-label">Fecha de extracción</label>
+    <div class="col-sm-9">
+      <input {{ readOnly ? 'readonly'}} {{ orden.partidas | length > 0 ? 'readonly' }} type="text" required class="form-control fecha" id="fechaExtraccion" name="fechaExtraccion" placeholder="Fecha de extracción" value="{{ orden.fecha_extraccion | date('d/m/Y') }}"/>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="estado" class="col-sm-3 control-label">Estado</label>
+    <div class="col-sm-9">
+      <input readonly="readonly" type="text" required class="form-control" id="estado" name="estado" placeholder="Estado" value="{{ orden.proceso.tareaActual.estado.nombre }}"/>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="observaciones" class="col-sm-3 control-label">Observaciones</label>
+    <div class="col-sm-9">
+      <textarea {{ readOnly ? 'readonly'}} name="observaciones" rows="4" cols="40" class="form-control">{{ orden.proceso.tareaActual.observaciones }}</textarea>
+    </div>
+  </div>
+</div>
+
+{% if producto is not null %}
+{% include 'templates/widgets/extraction/generalProductForm.twig' %}
+{% endif %}

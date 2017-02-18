@@ -1,0 +1,154 @@
+{% extends 'master1.twig' %}
+
+{% block contenido %}
+<!--<h1 class="page-header">Acerca de... este progra fue hecho por </h1>-->
+
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header"></h1>
+  </div>
+  <!-- /.col-lg-12 -->
+  
+   <ol class="breadcrumb">
+    <li>
+      <i class="fa fa-dashboard"></i>
+      <a href="{{ path_for('home') }}">Inicio</a>
+    </li>
+    <li class="active">
+      <i class="fa fa-users" aria-hidden="true"></i> Acerca de VisionWap
+    </li>
+  </ol>
+
+<div class="col-lg-12">
+    <div class="panel panel-primary">
+        <div class="panel-heading text-center"><h1>Acerca de VisionWap</h1></div>
+            <div class="panel-body">
+                <div class="panel-body">
+                    <div class="panel-body">
+                        <p class="lead text-muted">El equipo de VisionWap está muy contento y entusiasmado por trabajar en este proyecto deseando concluirlo lo más pronto posible uno de los objetivos de VisionWap es entregar los proyectos en tiempo y en forma creando servicios de calidad competitivos con las empresas más exitosas en estándares de calidad en el desarrollo de aplicaciones webs confiados de nuestra metodología de trabajo, Control y seguimiento del proyecto, Plan de trabajo e Inversión.</p>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h4><strong><i class="fa fa-th-list fa-lg"></i></strong> Metodología de trabajo</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="panel-body">
+                                        <p class="text-muted">En nuestra metodología se realizan entregas parciales y regulares hasta completar el producto final, priorizadas por el beneficio que aportan usuario del proyecto. Es por ello, que estamos preparados para crear proyectos en entornos complejos, donde se necesita obtener resultados rápidamente, o donde los requisitos son cambiantes o no están claros desde el inicio del proyecto. Gracias esto podemos tener un alto grado de innovación, competitividad, flexibilidad. Teniendo como pilar que la productividad es fundamental.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h4><strong><i class="fa fa-tasks fa-lg"></strong></i> Control y seguimiento del proyecto</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="panel-body">
+                                        <p class="text-muted">El proyecto se ejecutará en iteraciones incrementales con una demostración del producto al finalizar cada iteración. De esta manera se podrá conocer de forma objetiva el estado del proyecto, si el desarrollo de los requisitos cumple con las expectativas, si la calidad es la esperada o si hay retrasos, con lo que se podrán tomar decisiones informadas.</p>
+
+                                        <p class="text-muted">Los requisitos se desarrollarán priorizados por el valor aportado para el cliente, de modo que en las primeras iteraciones se obtendrán los objetivos más importantes del proyecto y se podrán realizar ajustes al respecto con la suficiente antelación.</p> 
+
+                                        <p class="text-muted">El control y seguimiento del proyecto se basará en los requisitos completados en cada iteración. Se entenderá un requisito como completado si incluye todos los entregables asociados realizados (documentación, código fuente, presentaciones, etc.) e integrados con los entregables de las iteraciones anteriores, de manera que el producto sea susceptible de ser entregado con el mínimo esfuerzo. Por esta razón, cada requisito deberá es:</p>
+
+                                        <ul class="text-muted">
+                                            <li>Independiente del resto de requisitos, en la medida de lo posible.</li>
+                                            <li>Demostrable, de manera que sea claro cómo comprobar que el requisito está completado y que se cumplen sus expectativas.</li>
+                                        </ul>
+
+                                        <p class="text-muted">Todos nuestros proyectos comienzan con una junta de kickoff donde definimos los planes de comunicación y establecemos las personas involucradas y el rol de las mismas dentro del proyecto, teniendo especial cuidado en que un proyecto puede y va a afectar la forma de trabajar de muchas personas.</p>
+
+                                        <ul class="text-muted">
+                                            <li>Patrocinador, persona que va a realizar los pagos una vez que el revisor esté de acuerdo con el producto entregado.</li>
+                                            <li>Autorizador, persona que va a realizar y acordar las pruebas de aceptación.</li>
+                                            <li>Experto, persona que va a resolver las dudas en caso de que el equipo de desarrollo las tenga.</li>
+                                            <li>Usuario. Son aquellas personas que van a operar el sistema y que deben de recibir una capacitación para la operación del mismo.</li>
+                                        </ul>
+
+                                        <p class="text-muted">Del lado del nosotros colocaremos los siguientes roles para atención a los requerimientos del cliente:</p>
+
+                                        <ul class="text-muted">
+                                            <li>Scrum Master. Es el enlace entre el equipo de desarrollo y los distintos roles del cliente, verifica que el plan de trabajo se cumpla.</li>
+                                            <li>Analista de Negocio. Es nuestro rol para captar las necesidades de nuestros clientes y proponer una solución que cumpla con las restricciones técnicas que tiene el proyecto, y establece los criterios de aceptación del proyecto.</li>
+                                        </ul>
+
+                                        <p class="text-muted">Adicionalmente en la junta de kickoff se establece la fecha en la cual se va a mostrar el prototipo y las historias de usuario (las cuales contienen los criterios de aceptación).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="panel panel-primary">
+                                <div class="panel-body">
+                                    <div class="panel-body">
+                                        <p class="text-muted">Cuando el prototipo y las historias de usuario esté aceptadas se acuerdan las entregas parciales y las fechas en las que se van a realizar pruebas, así como los tiempos en los cuales se van a realizar las correcciones en caso de existir.</p>
+
+                                        <p class="text-muted">En cada ciclo o iteración se realizan las pruebas de aceptación con el cliente, para cerrar toda la funcionalidad de ese ciclo. Adicionalmente se realiza una pequeña prueba de regresión para identificar problemas a la funcionalidad entregada si es que existiera..</p>
+
+                                        <p class="text-muted">Una vez que las pruebas se han aceptado, se hace el despliegue de la aplicación en el ambiente productivo.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h4><strong><i class="fa fa-building fa-lg"></i></strong> Plan de trabajo</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="panel-body">
+                                        <p class="text-muted">El plan de trabajo se mide en ciclos de desarrollo, considerando la complejidad e importancia de las características que se deseen implementar y del tiempo del cliente para realizar la revisión de las características entregadas de la iteración.</p>
+
+                                        <p class="text-muted">El presente plan de trabajo refleja el esfuerzo estimado para la construcción del proyecto, este puede variar una vez que se hayan detallado los requerimientos del cliente.</p>
+                                    </div> 
+                                </div>
+                            </div>
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h4><strong><i class="fa fa-usd fa-lg"></i></strong> Inversión</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="panel-body">
+                                        <p class="text-muted"><small>Inversión por la aplicación Web.</small></p>
+
+                                        <p class="text-muted">Todos los importes están en moneda nacional y no incluyen IVA.</p>
+
+                                        <p class="text-muted"><small>Anticipo*.</small></p>
+
+                                        <ul class="text-muted">
+                                            <li>50% al iniciar el desarrollo.</li>
+                                            <li>El proyecto no inicia formalmente hasta que se haya pagado completamente el anticipo.</li>
+                                            <li>El depósito no es reembolsable, salvo en los términos y condiciones expresadas en el contrato.</li>
+                                        </ul>
+
+                                        <p class="text-muted"><small>Pago final y honorarios adicionales incurridos.</small></p>
+
+                                        <ul class="text-muted">
+                                            <li>50% al instalar en producción, depende del número de ciclos donde se instala.</li>
+                                            <ul>
+                                                <li>Por ejemplo, si la aplicación se instala en producción en 5 ciclos debe de pagarse 10% en cada ciclo.</li>
+                                                <li>Ejemplo 2, si la aplicación se instala en producción en 2 ciclos debe de pagarse, 25% en cada ciclo.</li>
+                                            </ul>
+                                            <li>El proyecto ha sido finalizado cuando: </li>
+                                            <ul>
+                                                <li>Se ha entregado el código fuente del proyecto desarrollado</li>
+                                                <li>Se han validado la funcionalidad de la aplicación web por parte del cliente.</li>
+                                            </ul>
+                                            <li>Si existen características que no se encuentren descritas en esta cotización y deben de incluirse en la aplicación para beneficio del cliente, y a solicitud de este se puede implementar, previo acuerdo del impacto en costo y tiempo que implique. Los costes se reflejan como honorarios adicionales a la presente cotización.</li>
+                                        </ul>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                <div class="panel-body">
+                    <p class="text-muted">Ultima actualización: 20 de Enero del 2017.</p>
+                </div>
+                </div>
+            </div>
+        </div>
+  </div>
+</div>
+{% endblock %}

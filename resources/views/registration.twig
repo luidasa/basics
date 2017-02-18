@@ -1,0 +1,105 @@
+{% extends 'master.twig' %}
+
+{% block estilos %}
+
+<!-- jquery-ui CSS base  -->
+<link rel="stylesheet" href="{{ base_url() }}/bower_components/jqueryui/themes/base/jquery-ui.min.css">
+
+<!-- DataTables CSS -->
+<link href="{{ base_url() }}/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+
+<!-- DataTables Responsive CSS -->
+<link href="{{ base_url() }}/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+
+{% endblock %}
+
+{% block contenido %}
+<!-- Page Heading -->
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">
+      Orden de registro {{ orden is null ? 'NUEVA' : orden.id }}
+    </h1>
+  <ol class="breadcrumb">
+    <li>
+      <i class="fa fa-dashboard"></i>
+      <a href="{{ path_for('home') }}">Inicio</a>
+    </li>
+    <li>
+      <a href="{{ path_for('registrations') }}">
+      <i class="fa fa-sign-in"></i> Ordenes
+      </a>
+    </li>
+    <li class="active">
+      <i class="fa fa-clipboard"></i> Orden
+    </li>
+  </ol>
+  <div class="col-lg-12">
+      {% include 'templates/partials/flash.twig' %}
+      {% include 'templates/partials/errors.twig' %}
+      {% if orden is null or estado.nombre=="En captura" %}
+        {% include 'templates/widgets/registration/registrationForm.twig' %}
+      {% endif %}
+      {% if not orden is null and estado.nombre=="En proceso" %}
+        {% include 'templates/widgets/registration/inProcessForm.twig' %}
+      {% endif %}
+      {% if not orden is null and estado.nombre=="Finalizado" %}
+        {% include 'templates/widgets/registration/endProcessReport.twig' %}
+      {% endif %}
+  </div>
+  <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+{% endblock %}
+
+{% block scripts %}
+
+<!-- jquery-ui  -->
+<script src="{{ base_url() }}/bower_components/jqueryui/jquery-ui.min.js"></script>
+
+<!-- DataTables JavaScript -->
+<script src="{{ base_url() }}/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+<script src="{{ base_url() }}/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+<script src="{{ base_url() }}/bower_components/datatables-responsive/js/dataTables.responsive.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+  $(".fecha").datepicker({
+    dateFormat: "dd/mm/yy",
+    dayNames: ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"],
+    dayNamesMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
+    firstDay: 1,
+    gotoCurrent: true,
+    monthNames: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Deciembre"]
+  });
+  $('.tabla').DataTable({
+    responsive: true,
+    language: {
+      processing: "Procesando....",
+      search: "Buscar:",
+      lengthMenu: "Mostrar _MENU_ elementos",
+      info: "Mostrando los elementos _START_ de _END_ de _TOTAL_ en total",
+      infoEmpty: "No existen elementos para mostrar",
+      infoFiltered: "(filtrando de _MAX_ elementos en total)",
+      infoPostFix: "",
+      loadingRecords: "Cargando los registros",
+      zeroRecords: "No hay registros para ese filtro",
+      emptyTable: "No existen registros en la tabla",
+      paginate: {
+        first: "Primera",
+        previous: "Anterior",
+        next: "Siguiente",
+        last: "Final"
+      },
+      aria: {
+        sortAscending: ": ordenando de forma ascendente",
+        sortDescending: ": ordenando de forma descendente"
+      }
+    }
+  });
+});
+
+  </script>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+<form class="form-horizontal" method="post" action="{{ path_for('auth.profile' ) }}">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Mi información personal
+    </div>
+    <!-- /.panel-heading -->
+    <div class="panel-body">
+      <br/>
+      <input type="hidden" class="form-control" id="id" placeholder="Id" disabled value="{{ operador.id }}">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="email" class="col-sm-3 control-label">Email</label>
+          <div class="col-sm-9">
+            <input type="email" required class="form-control" id="email" name="email" placeholder="Email" value="{{ operador.email }}"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="nombre" class="col-sm-3 control-label">Nombre</label>
+          <div class="col-sm-9">
+            <input type="text" required class="form-control" id="nombre" name="nombre" placeholder="Nombre" value="{{ operador.first_name }}"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="apellidos" class="col-sm-3 control-label">Apellidos</label>
+          <div class="col-sm-9">
+            <input type="text" required class="form-control" id="apellidos" name="apellidos" placeholder="Apellidos" value="{{ operador.last_name }}"/>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="password" class="col-sm-3 control-label">Contrase&ntilde;a</label>
+          <div class="col-sm-9">
+            <input type="password" required class="form-control" id="password" name="password" placeholder="Contrase&ntilde;a"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="again" class="col-sm-3 control-label">Repetir</label>
+          <div class="col-sm-9">
+            <input type="password" required class="form-control" id="repetir" name="repetir" placeholder="Repetir contrase&ntilde;a"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <button id="operacion" name="operacion" value="Guardar" type="submit" class="btn btn-default btn-primary" />
+      <i class="fa fa-save"></i> Guardar
+    </button>
+  </div>
+</div>
+</form>

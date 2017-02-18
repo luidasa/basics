@@ -1,0 +1,50 @@
+
+{% if flash.getMessage('info') %}
+<div class="col-md-21 login-alert">
+    <div class="alert alert-info">
+        <button type="button" class="close btooltip" data-toggle="tooltip" data-placement="top" title="" data-dismiss="alert" data-original-title="Close">×</button>
+            <ul>
+                <li>{{ flash.getMessage('info') | first }}</li>
+            </ul>
+    </div>
+</div>
+{% endif %}
+
+{% if flash.getMessage('warning') %}
+<div class="col-md-21 login-alert">
+    <div class="alert alert-warning">
+        <button type="button" class="close btooltip" data-toggle="tooltip" data-placement="top" title="" data-dismiss="alert" data-original-title="Close">×</button>
+        <div class="errors">
+            <ul>
+                <li>{{ flash.getMessage('warning') | first }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if flash.getMessage('error') %}
+<div class="col-md-21 login-alert">
+    <div class="alert alert-danger">
+        <button type="button" class="close btooltip" data-toggle="tooltip" data-placement="top" title="" data-dismiss="alert" data-original-title="Close">×</button>
+        <div class="errors">
+            <ul>
+                <li>{{ flash.getMessage('error') | first }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if flash.getMessage('success') %}
+<div class="col-md-21 login-alert">
+    <div class="alert alert-success">
+        <button type="button" class="close btooltip" data-toggle="tooltip" data-placement="top" title="" data-dismiss="alert" data-original-title="Close">×</button>
+        <div class="errors">
+            <ul>
+                <li>{{ flash.getMessage('success') | first }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endif %}

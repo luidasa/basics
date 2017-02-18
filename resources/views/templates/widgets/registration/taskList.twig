@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Tareas realizadas en la orden {{ orden.id }}
+  </div>
+  <div class="panel-body">
+    <div class="dataTable_wrapper">
+      <table width="100%" class="table table-striped table-bordered table-hover tabla" id="materiales">
+        <thead>
+          <tr>
+            <th>Estado</th>
+            <th>Observaciones</th>
+            <th>Fecha creada</th>
+            <th>Fecha cerrada</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for tarea in tareas %}
+          <tr class="{{ loop.index % 2 == 0 ? 'odd' : 'even' }}">
+            <td>{{ tarea.estado.nombre }}</td>
+            <td>{{ tarea.observaciones }}</td>
+            <td>{{ tarea.created_at | date("d/m/Y") }}</td>
+            <td>{{ tarea.fecha_cierre | date("d/m/Y") }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="panel-footer">
+  </div>
+</div>

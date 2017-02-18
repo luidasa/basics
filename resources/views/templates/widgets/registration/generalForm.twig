@@ -1,0 +1,99 @@
+<div class="row">
+  <div class="col-lg-6">
+    <div class="form-group">
+      <label for="cliente" class="col-sm-3 control-label">Cliente</label>
+      <div class="col-sm-9">
+        <select {{ readOnly }} name="cliente" id="cliente" class="form-control">
+          {% for cliente in clientes %}
+          <option value="{{ cliente.id }}" {{ cliente.id == orden.cliente.id ? 'selected' }}>{{ cliente.nombre }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="transportista" class="col-sm-3 control-label">Nombre transportista</label>
+      <div class="col-sm-9">
+        <input {{ readOnly }} type="text" maxlength="50" required class="form-control" id="transportista" name="transportista" placeholder="Nombre del transportista" value="{{ orden.transportista }}"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="bol" class="col-sm-3 control-label">BOL</label>
+      <div class="col-sm-3">
+        <input {{ readOnly }} type="text" maxlength="30" required class="form-control" id="bol" name="bol" placeholder="BOL" value="{{ orden.BOL }}"/>
+      </div>
+      <label for="idContenedor" class="col-sm-3 control-label">Id Cont.</label>
+      <div class="col-sm-3">
+        <input {{ readOnly }} type="text" maxlength="15" required class="form-control" id="idContenedor" name="idContenedor" placeholder="Contenedor" value="{{ orden.id_contenedor }}"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="proveedor" class="col-sm-3 control-label">Proveedor</label>
+      <div class="col-sm-9">
+        <input {{ readOnly }} type="text" maxlength="50" required class="form-control" id="proveedor" name="proveedor" placeholder="Nombre del proveedor" value="{{ orden.proveedor }}"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="origen" class="col-sm-3 control-label">País de origen</label>
+      <div class="col-sm-9">
+        <input {{ readOnly }} type="text" maxlength="50" required class="form-control" id="origen" name="origen" placeholder="País de origen del embarque" value="{{ orden.origen }}"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="pallets" class="col-sm-3 control-label">Numero de pallets</label>
+      <div class="col-sm-9">
+        <input {{ readOnly }} type="text" maxlength="50" required class="form-control" id="pallets" name="pallets" placeholder="Numero de pallets del embarque" value="{{ orden.id_pallet }}"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="tipo" class="col-sm-3 control-label">Tipo</label>
+      <div class="col-sm-9">
+        <div class="checkbox checkbox-success checkbox-inline">
+          <input {{ readOnly ? 'disabled'}} type="radio" name="tipo" id="tipo" value="FCL" {{orden.tipo == 'FCL' ? 'checked'}}>
+          <label for="tipo"> FCL </label>
+        </div>
+        <div class="checkbox checkbox-success checkbox-inline">
+          <input {{ readOnly ? 'disabled' }} type="radio" name="tipo" id="tipo" value="LCL" {{orden.tipo == 'LCL' ? 'checked'}}>
+          <label for="tipo"> LCL </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="form-group">
+      <label for="eta" class="col-sm-3 control-label">ETA</label>
+      <div class="col-sm-9">
+        <input {{ readOnly }} type="text" required class="form-control fecha" id="eta" name="eta" placeholder="Fecha estimada de arribo" value="{{ orden.eta | date('d/m/Y') }}"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="etd" class="col-sm-3 control-label">ETD</label>
+      <div class="col-sm-9">
+        <input {{ readOnly }} type="text" required class="form-control fecha" id="etd" name="etd" placeholder="Fecha de embarque" value="{{ orden.etd | date('d/m/Y') }}"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="estado" class="col-sm-3 control-label">Estado</label>
+      <div class="col-sm-9">
+        <input {{ readOnly }} type="text" disabled class="form-control" id="estado" name="estado" placeholder="Estado" value="{{ orden.proceso.tareaActual.estado.nombre }}"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="factura" class="col-sm-3 control-label">Número de factura</label>
+      <div class="col-sm-9">
+        <input {{ readOnly }} type="text" maxlength="50" required class="form-control" id="factura" name="factura" placeholder="Numero de factura" value="{{ orden.numero_factura }}"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="precioTotal" class="col-sm-3 control-label">Precio total</label>
+      <div class="col-sm-9">
+        <input readonly type="number" maxlength="50" step="0.000001" class="form-control" id="precioTotal" name="precioTotal" placeholder="Precio total del embarque" value="{{ orden.precio_total ? orden.precio_total | format(2, '.', '') : 0 }}"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="observaciones" class="col-sm-3 control-label">Observaciones</label>
+      <div class="col-sm-9">
+        <textarea {{ readOnly }} name="observaciones" rows="4" cols="40" class="form-control">{{ orden.proceso.tareaActual.observaciones }}</textarea>
+      </div>
+    </div>
+  </div>
+</div>

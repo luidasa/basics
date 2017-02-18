@@ -1,0 +1,10 @@
+{% for fields in errors  %}
+  {% for error in fields if error | length > 0 %}
+    <div class="alert alert-danger alert-dismissable fade in">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <ul>
+        <li>{{ error }}</li>
+      </ul>
+    </div>
+  {% endfor %}
+{% endfor %}

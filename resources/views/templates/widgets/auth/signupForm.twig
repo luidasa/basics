@@ -1,0 +1,74 @@
+
+<form action="{{ path_for('auth.signup') }}" class="form-horizontal" method="post" role="form">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+
+      <div class="login-panel panel panel-default">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-lg-6">
+              <h3 class="panel-title">Registro de usuarios</h3>
+            </div>
+            <div class="col-lg-6 text-right">
+              <a href="{{ path_for('auth.signin') }}"> Inicio</a>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <fieldset>
+            <div class="form-group">
+              <label for="email" class="control-label col-lg-3">Email</label>
+              <div class="col-lg-9">
+                <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="nombre" class="control-label col-lg-3">Nombre</label>
+              <div class="col-lg-9">
+                <input class="form-control" placeholder="Nombre" name="nombre" type="text" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="apellidos" class="control-label col-lg-3">Apellidos</label>
+              <div class="col-lg-9">
+                <input class="form-control" placeholder="Apellidos" name="apellido" type="text" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password" class="control-label col-lg-3">Contraseña</label>
+              <div class="col-lg-9">
+                <input class="form-control" placeholder="Password" name="password" type="password" required>
+              </div>
+
+            </div>
+            <div class="form-group">
+              <label for="repetir" class="control-label col-lg-3">Confirmación</label>
+              <div class="col-lg-9">
+                <input class="form-control" placeholder="Repetir password" name="repetir" type="password" required>
+              </div>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input name="acepto" type="checkbox" value="acepto">He leido y acepto los <a href="{{ path_for('terms') }}">terminos y condiciones de uso.</a>
+                </label>
+            </div>
+          </fieldset>
+
+        </div>
+
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-lg-6">
+              <!-- Change this to a button or input when using this as a form -->
+              <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Enviar</a>
+              </div>
+              <div class="col-lg-6 text-right">
+                <a href="{{ path_for('auth.password.change') }}">Olvidaste tu contraseña?</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

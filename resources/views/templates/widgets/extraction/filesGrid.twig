@@ -1,0 +1,31 @@
+<h4>Archivos adjuntos</h4>
+<div class="row">
+  <div class="col-lg-12">
+      {% for archivo in orden.proceso.archivos %}
+          <a title="{{ archivo.descripcion }}" href="{{ path_for('registration.file', {'id':archivo.id}) }}" target="_blank">
+              <div class="col-md-3 col-sm-4 col-xs-6" style="text-align:center">
+                  <img class="img-responsive img-thumbnail" src="{{ base_url() }}/images/archivo.png" alt="{{ archivo.descripcion }}"/>
+                  <a href="{{ path_for('registration.file.trash', {'orden_id': orden.id, 'id': archivo.id}) }}"><span class="fa fa-trash"> Borrar</a>
+              </div>
+          </a>
+      {% endfor %}
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="form-group">
+        <label for="archivo" class="col-sm-3 control-label">Archivo</label>
+        <div class="col-sm-9">
+            <input type="file" id="archivo" name="archivo" class="form-control"/>
+        </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="form-group">
+        <label for="descripcion" class="col-sm-3 control-label">Descripción</label>
+        <div class="col-sm-9">
+            <input type="text" id="archivoDescripcion" name="archivoDescripcion" class="form-control"/>
+        </div>
+    </div>
+  </div>
+</div>

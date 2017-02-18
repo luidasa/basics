@@ -1,0 +1,55 @@
+{% extends 'master.twig' %}
+
+{% block estilos %}
+
+<!-- jquery-ui CSS base  -->
+<link rel="stylesheet" href="{{ base_url() }}/bower_components/jqueryui/themes/base/jquery-ui.min.css">
+
+{% endblock %}
+
+{% block contenido %}
+<!-- Page Heading -->
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">
+      Configuración de la sistema
+    </h1>
+  <ol class="breadcrumb">
+    <li>
+      <i class="fa fa-dashboard"></i>
+      <a href="{{ path_for('home') }}">Inicio</a>
+    </li>
+    <li class="active">
+      <i class="fa fa-gear"></i> Configuración
+    </li>
+  </ol>
+  <div class="col-lg-12">
+      {% include 'templates/partials/flash.twig' %}
+      {% include 'templates/widgets/configuration/configurationForm.twig' %}
+  </div>
+  <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+{% endblock %}
+
+{% block scripts %}
+
+<!-- jquery-ui  -->
+<script src="{{ base_url() }}/bower_components/jqueryui/jquery-ui.min.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+  $(".fecha").datepicker({
+  dateFormat: "dd/mm/yy",
+  dayNames: ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"],
+  dayNamesMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
+  firstDay: 1,
+  gotoCurrent: true,
+  monthNames: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Deciembre"]
+  });
+});
+
+  </script>
+
+{% endblock %}

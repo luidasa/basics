@@ -1,0 +1,49 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Ordenes de embarques recibidas
+  </div>
+  <!-- /.panel-heading -->
+  <div class="panel-body">
+    <div class="dataTable_wrapper">
+      <table width="100%" class="table table-striped table-bordered table-hover tabla" id="registro">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Transportista</th>
+            <th>BOL</th>
+            <th>Id Contenedor</th>
+            <th>Id Pallets</th>
+            <th>Referencia</th>
+            <th>Origen</th>
+            <th>Tipo</th>
+            <th>ETA</th>
+            <th>Estado</th>
+            <th>Editar</th>
+            <th>Borrar</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for orden in ordenesRegistro %}
+            <tr class="{{ loop.index % 2 == 0 ? 'odd' : 'even' }}">
+              <td>{{ orden.id }}</td>
+              <td>{{ orden.transportista }}</td>
+              <td>{{ orden.BOL }}</td>
+              <td>{{ orden.id_contenedor }}</td>
+              <td>{{ orden.id_pallet }}</td>
+              <td>{{ orden.referencia }}</td>
+              <td>{{ orden.origen }}</td>
+              <td>{{ orden.tipo }}</td>
+              <td>{{ orden.eta | date('d/m/Y') }}</td>
+              <td>{{ orden.estado }}</td>
+              <td style="text-align: center;"><a href="{{ path_for('registration.edit', {'id' : orden.id }) }}"><span class="fa fa-edit"></span></a></td>
+              <td style="text-align: center;"><a href="{{ path_for('registration.delete', {'id' : orden.id }) }}"><span class="fa fa-trash"></span></a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="panel-footer">
+      <a href="{{ path_for('registration.add') }}" class="btn btn-primary"><span class="fa fa-plus"></span> Agregar</a>
+    </div>
+  </div>
+</div>

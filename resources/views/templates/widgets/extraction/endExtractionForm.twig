@@ -1,0 +1,71 @@
+<form class="form-horizontal" method="post" action="{{ orden is null ? path_for('extraction.add') : path_for('extraction.edit', {"id" : orden.id } ) }}" enctype="multipart/form-data">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Datos de la orden de extracción
+    </div>
+    <!-- /.panel-heading -->
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active">
+              <a href="#generales" aria-controls="generales" role="tab" data-toggle="tab"><i class="fa fa-info"></i> Generales</a>
+            </li>
+            <li role="presentation">
+              <a href="#materiales" aria-controls="materiales" role="tab" data-toggle="tab">
+                <i class="fa fa-list-ol"></i> Materiales
+              </a>
+            </li>
+            <li role="presentation">
+              <a href="#archivos" aria-controls="archivos" role="tab" data-toggle="tab">
+                <i class="fa fa-files-o"></i> Adjuntos
+              </a>
+              <li role="presentation">
+                <a href="#tareas" aria-controls="tareas" role="tab" data-toggle="tab">
+                  <i class="fa fa-task"></i> Tareas
+                </a>
+              </li>
+            </li>
+          </ul>
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="generales">
+              <br/>
+              {% include 'templates/widgets/extraction/generalForm.twig' with {
+                'readOnly' : 'readOnly'
+              } %}
+            </div>
+            <div role="tabpanel" class="tab-pane" id="materiales">
+              <br/>
+              {% include 'templates/widgets/extraction/itemList.twig' with {
+                'readOnly' : 'readOnly'
+              } %}
+            </div>
+            <div role="tabpanel" class="tab-pane" id="archivos">
+              <br/>
+              {% include 'templates/widgets/extraction/filesGrid.twig' with {
+                'readOnly' : 'readOnly'
+              } %}
+            </div>
+            <div role="tabpanel" class="tab-pane" id="tareas">
+              <br/>
+              {% include 'templates/widgets/registration/taskList.twig' with {
+                'readOnly'  : 'readOnly',
+                'tareas'    : orden.proceso.tareas
+              } %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <input type="hidden" id="id" name="id"  value="{{ orden.id }}"/>
+      <a href="{{ path_for('extraction.argo', {'id':orden.id}) }}" class="btn btn-info" />
+        <i class="fa fa-file-excel-o"></i> Argo
+      </a>
+      <a href="{{ path_for('extraction.bol', {'id':orden.id}) }}" class="btn btn-info" />
+        <i class="fa fa-file-excel-o"></i> BOL
+      </a>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,33 @@
+{
+    "name": "visionwap/Basics",
+    "description": "Skeleton for create Web Applications.",
+    "authors": [
+        {
+            "name": "David Salazar",
+            "email": "david@visionwap.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Luidasa\\": "src"
+        }
+    },
+    "require": {
+        "slim/slim": "3.*",
+        "slim/csrf": "^0.7.0",
+        "slim/flash": "^0.2.0",
+        "slim/twig-view": "~2.0",
+        "twig/twig": "~1.0",
+        "monolog/monolog": "^1.13",
+        "respect/validation": "~1.0",
+        "phpmailer/phpmailer": "~5.2",
+        "cartalyst/sentinel": "2.0.*",
+        "doctrine/dbal": "^2.5",
+        "illuminate/database": "^5.3",
+        "illuminate/events": "^5.3",
+        "illuminate/support": "^5.3",
+        "symfony/http-foundation": "^3.2",
+        "illuminate/contracts": "^5.3",
+        "illuminate/container": "^5.3"
+    }
+}

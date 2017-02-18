@@ -1,0 +1,25 @@
+{% extends 'master.twig' %}
+
+{% block contenido %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="error-template">
+                <h1>
+                    Oops!</h1>
+                <h2>
+                    404 El recurso no existe</h2>
+                <div class="error-details">
+                    Lo lamentamos el recurso que estas solicitando no existe!
+                </div>
+                <div class="error-actions">
+                    <a href="{{ path_for('home') }}" class="btn btn-primary">
+                      <span class="glyphicon glyphicon-home"></span>Inicio
+                    </a>
+                    <a href="{{ path_for('contact') }}" class="btn btn-default">
+                      <span class="glyphicon glyphicon-envelope"></span> Contacto a soporte
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

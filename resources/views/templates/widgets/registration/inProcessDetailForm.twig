@@ -1,0 +1,34 @@
+<div class="col-lg-6">
+  <div class="form-group">
+    <label for="cliente" class="col-sm-3 control-label">Cliente</label>
+    <div class="col-sm-9">
+      <input type="text" maxlenght="50" disabled class="form-control" id="cliente" name="cliente" placeholder="Cliente" value="{{ orden.cliente.nombre }}"/>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="referenciaAA" class="col-sm-3 control-label">Referencia AA</label>
+    <div class="col-sm-9">
+      <input type="text" maxlenght="50" required class="form-control" id="referenciaAA" name="referenciaAA" placeholder="Referencia Agente Aduanal" value="{{ orden.referencia_agente_aduanal }}"/>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="estado" class="col-sm-3 control-label">Estado</label>
+    <div class="col-sm-9">
+      <input type="text" disabled class="form-control" id="estado" name="estado" placeholder="Estado" value="{{ orden.proceso.tareaActual.estado.nombre }}"/>
+    </div>
+  </div>
+</div>
+<div class="col-lg-6">
+  <div class="form-group">
+    <label for="pedimento" class="col-sm-3 control-label">Pedimento</label>
+    <div class="col-sm-9">
+      <input type="text" maxlenght="50" required class="form-control" id="pedimento" name="pedimento" placeholder="Numero de pedimento" value="{{ orden.numero_pedimento }}"/>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="observaciones" class="col-sm-3 control-label">Observaciones</label>
+    <div class="col-sm-9">
+      <textarea name="observaciones" rows="4" cols="40">{{ orden.proceso.tareaActual.observaciones }}</textarea>
+    </div>
+  </div>
+</div>

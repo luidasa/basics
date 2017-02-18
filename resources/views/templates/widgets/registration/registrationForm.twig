@@ -1,0 +1,63 @@
+
+<form class="form-horizontal" method="post" action="{{ orden is null ? path_for('registration.add') : path_for('registration.edit', {"id" : orden.id } ) }}"  enctype="multipart/form-data">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Datos de la orden de registro de embarque
+    </div>
+    <!-- /.panel-heading -->
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active">
+              <a href="#generales" aria-controls="generales" role="tab" data-toggle="tab"><i class="fa fa-info"></i> Generales</a>
+            </li>
+            <li role="presentation">
+              <a href="#materiales" aria-controls="materiales" role="tab" data-toggle="tab">
+                <i class="fa fa-list-ol"></i> Materiales
+              </a>
+            </li>
+            <li role="presentation">
+              <a href="#archivos" aria-controls="archivos" role="tab" data-toggle="tab">
+                <i class="fa fa-files-o"></i> Adjuntos
+              </a>
+            </li>
+          </ul>
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="generales">
+              <br/>
+              {% include 'templates/widgets/registration/generalForm.twig'%}
+            </div>
+            <div role="tabpanel" class="tab-pane" id="materiales">
+              <br/>
+              {% include 'templates/widgets/registration/itemList.twig' %}
+            </div>
+            <div role="tabpanel" class="tab-pane" id="archivos">
+              <br/>
+              {% include 'templates/widgets/registration/filesGrid.twig' %}
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <input type="hidden" id="id" name="id" value="{{ orden.id }}">
+    <button id="operacion" name="operacion" value="Guardar" type="submit" class="btn btn-default btn-primary" />
+      <i class="fa fa-save"></i> Guardar
+    </button>
+    <button id="operacion" name="operacion" value="Terminar" type="submit" class="btn btn-success" />
+      <i class="fa fa-check"></i> Terminar
+    </button>
+    <a href="{{ path_for('registration.packing', { 'id':orden.id }) }}" class="btn btn-info" target="_blank"/>
+      <i class="fa fa-file-excel-o"></i> Packing
+    </a>
+    <a href="{{ path_for('registration.invoice', {'id': orden.id }) }}" class="btn btn-info" target="_blank" />
+      <i class="fa fa-file-excel-o"></i> Invoice
+    </a>
+    <a href="{{ path_for('registration.receipt', {'id': orden.id }) }}" class="btn btn-info" target="_blank" />
+      <i class="fa fa-file-excel-o"></i> Recibos
+    </a>
+  </div>
+</div>
+</form>

@@ -1,0 +1,79 @@
+{% extends 'master.twig' %}
+
+{% block estilos %}
+
+<!-- jquery-ui CSS base  -->
+<link rel="stylesheet" href="{{ base_url() }}/bower_components/jqueryui/themes/base/jquery-ui.min.css">
+
+{% endblock %}
+
+{% block contenido %}
+<!-- Page Heading -->
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">
+      Partida de embarque
+    </h1>
+  <ol class="breadcrumb">
+    <li>
+      <i class="fa fa-dashboard"></i>
+      <a href="{{ path_for('home') }}">Inicio</a>
+    </li>
+    <li>
+      <a href="{{ path_for('registrations') }}">
+      <i class="fa fa-sign-in"></i> Ordenes
+      </a>
+    </li>
+    <li>
+      <a href="{{ path_for('registration.edit', {'id' : orden.id}) }}">
+      <i class="fa fa-clipboard"></i> Orden
+      </a>
+  </li>
+    <li class="active">
+      <i class="fa fa-sticky-note-o"></i> Partida
+    </li>
+  </ol>
+  <div class="col-lg-12">
+      {% include 'templates/partials/flash.twig' %}
+      {% include 'templates/widgets/registration/itemRegistrationForm.twig' %}
+  </div>
+  <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+{% endblock %}
+
+{% block scripts %}
+
+<!-- jquery-ui  -->
+<script src="{{ base_url() }}/bower_components/jqueryui/jquery-ui.min.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+  $(".fecha").datepicker({
+  dateFormat: "dd/mm/yy",
+  dayNames: ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"],
+  dayNamesMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
+  firstDay: 1,
+  gotoCurrent: true,
+  monthNames: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Deciembre"]
+  });
+  $("#cantidad").change(function() {
+    $("#precioTotal").val($("#cantidad").val() * $("#precioUnitario").val());
+  });
+  $("#precioUnitario").change(function() {
+    $("#precioTotal").val($("#cantidad").val() * $("#precioUnitario").val());
+  });
+  $("#fraccionArancelaria").change(function() {
+    fraccionesImportantes = ["73269099","73182299","73182999","85119099","84139199","85389099"];
+    if(fraccionesImportantes.indexOf($("#fraccionArancelaria").val()) >= 0) {
+      $("#umtLabel").addClass("label-warning");
+    } else {
+      $("#umtLabel").removeClass("label-warning");
+    }
+  });
+});
+
+  </script>
+
+{% endblock %}

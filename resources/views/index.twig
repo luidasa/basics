@@ -1,0 +1,39 @@
+{% extends 'master.twig' %}
+
+{% block estilos %}
+    <!-- Morris Charts CSS -->
+    <link href="{{ base_url() }}/bower_components/morrisjs/morris.css" rel="stylesheet">
+
+{% endblock %}
+
+{% block contenido %}
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Panel de control</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        {% include 'templates/partials/flash.twig' %}
+        <div class="col-lg-3 col-md-6">
+            {% include 'templates/widgets/index/RegistrationOrders.twig' %}
+        </div>
+        <div class="col-lg-3 col-md-6">
+            {% include 'templates/widgets/index/ExtractionOrders.twig' %}
+        </div>
+        <div class="col-lg-3 col-md-6">
+            {% include 'templates/widgets/index/users.twig' %}
+        </div>
+        <div class="col-lg-3 col-md-6">
+            {% include 'templates/widgets/index/shipments.twig' %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <!-- Morris Charts JavaScript -->
+    <script src="{{ base_url() }}/bower_components/morrisjs/morris.min.js"></script>
+    <script src="{{ base_url() }}/bower_components/raphael/raphael.min.js"></script>
+    <script src="{{ base_url() }}/js/morris-data.js"></script>
+{% endblock %}
