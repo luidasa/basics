@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Para utilizar este pequeño script desde consola ejecutamos
+ * Para utilizar este script desde consola ejecutamos
  * php migration.php drop     //Para eliminar tablas
  * php migration.php create   //Para crear las tablas
  *
@@ -433,7 +433,7 @@ function create()
           $table->unsignedInteger('destinatario_id');
           $table->unsignedInteger('proceso_id');
           $table->unsignedInteger('consecutivo');
-          
+
           // Campos ocultos
           $table->timestamps();
 

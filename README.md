@@ -1,30 +1,42 @@
+## Synopsis
 
-Instalación de una ambiente de desarrollo.
+luidasa/basics: Is a template for create web application.
 
-Instalación en el ambiente de Pruebas
-1. Crear una carpeta skyline en el servidor.
-2. El dominio debe de estar apuntando a la carpeta skyline/public.
-3. Generar una base de datos, se requiere
-    nombre de la base de datos:
-    usuario:
-    contraseña:
-4. Crear la cuenta de correo electronico.
-5. Copiar el sitio completo, o ejecutar en el servidor composer y bower
-6. Dentro de la carpeta
-    skyline/app
-7. Crear el archivo config_override.php con la configuración del ambiente.
-  Usuario de base de datos
-  Usuario de correo
+## Code Example
 
-Reinstalación.
-1. Regenerar la base de datos con perdida de datos.
-1.1 Para regenerar desde remoto se debe de conectar al servidor actualizando el archivo local config_override.php
-1.2 Ejecutar los scripts de
-      php migration.php drop
-      php migration.php create
-      php migration.php inicialize
-2. Respaldar el archivo config_override.php que se encuentra en el raiz de la aplicación.
-3. Copiar los componentes al servidor.
-4. Restaurar el archivo config_override.php.
+Clone the project.
+1. Create DB
+2. Create src/config_override.php and set the appropiate value for config entries.
+    DB
+    mail
+    * Tip view the src/config.php file for example. Is empty but if you have an
+    develop environment you put, your values here, and you can use config_override.php
+    for configure other environments as test or production.
+3. For run the project use php -S localhost:8008 -t public.
 
-Instalación en el ambiente de Producción.
+
+## Motivation
+
+I use this template for all web application.
+1. Autorization.
+2. Authentication.
+3. Manage of accounts.
+4. Notifications for accounts.
+
+## Installation
+
+Provide code examples and explanations of how to get the project.
+
+## API Reference
+
+Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
+
+## Tests
+
+Describe and show how to run the tests with code examples.
+
+## Contributors
+
+Let people know how they can dive into the project, include important links to things like issue trackers, irc, twitter accounts if applicable.
+
+## License

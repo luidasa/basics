@@ -1,18 +1,6 @@
 <?php
 
 $config = [
-    'app' => [
-        'url' => 'http://override.com',
-        'hash' => [
-            'algo' => PASSWORD_BCRYPT,
-            'cost' => 10,
-        ],
-    ],
-    'auth' => [
-        'session' => 'user_id',
-        'group' => 'group_id',
-        'remember' => 'user_r',
-    ],
     'settings' => [
         // Slim settings
         //'addContentLengthHeader = false,
@@ -64,8 +52,5 @@ $config = [
           'name_replay'         =>'',
         ],
 
-        'workflow' => [
-          'path'                =>'C:/xampp/htdocs/skyline/app/Workflow/Definition/OrdenesEntrada.php' 
-        ]
     ],
 ];

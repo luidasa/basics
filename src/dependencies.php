@@ -13,7 +13,7 @@ $container = $app->getContainer();
 // -----------------------------------------------------------------------------
 // Service providers
 // -----------------------------------------------------------------------------
-/*
+
 // Error Handler
 $container['errorHandler'] = function (Container $c) {
     return function ($request, $response, $exception) use ($c) {
@@ -28,7 +28,6 @@ $container['notFoundHandler'] = function (Container $c) {
         return $c['view']->render($response, '404.twig')->withStatus(404);
     };
 };
-*/
 
 // Flash messages
 $container['flash'] = function (Container $c) {
@@ -46,13 +45,6 @@ $container['view'] = function (Container $c) {
         $c->get('request')->getUri()
     ));
 
-    /*$view->addExtension(new Twig_Extension_Debug());*/
-/*
-    $view->getEnvironment()->addGlobal('auth', [
-        "check" => $c->auth->check(),
-        "user" => $c->auth->user()
-    ]);
-*/
     $view->getEnvironment()->addGlobal('flash', $c->flash);
 
     return $view;
