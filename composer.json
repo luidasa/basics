@@ -9,7 +9,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Luidasa\\": "src"
+            "VisionWap\\": "src"
         }
     },
     "require": {

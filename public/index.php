@@ -29,6 +29,6 @@ $app = new \Slim\App($config);
 require __DIR__ . '/../src/dependencies.php';
 
 // Register routes
-require __DIR__ . '/../app/routes.php';
+require __DIR__ . '/../src/routes.php';
 
 $app->run();

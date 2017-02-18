@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Middleware;
+namespace VisionWap\Middleware;
 
 use Slim\Http\Response;
 use Slim\Http\Request;

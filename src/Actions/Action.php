@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Actions;
+namespace VisionWap\Actions;
 
 class Action
 {

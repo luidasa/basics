@@ -4,28 +4,34 @@ luidasa/basics: Is a template for create web application.
 
 ## Code Example
 
+
+
+
+## Motivation
+
+I use this template for web application.
+1. Autorization.
+2. Authentication.
+3. Manage of accounts.
+4. Notifications for accounts.
+5. Manage clients.
+6. Shared calendar.
+
+## Installation
+
 Clone the project.
-1. Create DB
-2. Create src/config_override.php and set the appropiate value for config entries.
+1. Update the composer dependencies
+  composer install or update
+2. Update the bower dependencies. The bower file dependencies is on public folder.
+  bower install
+3. Create DB, example, db_basics:
+4. Create src/config_override.php and set the appropiate value for config entries.
     DB
     mail
     * Tip view the src/config.php file for example. Is empty but if you have an
     develop environment you put, your values here, and you can use config_override.php
     for configure other environments as test or production.
-3. For run the project use php -S localhost:8008 -t public.
-
-
-## Motivation
-
-I use this template for all web application.
-1. Autorization.
-2. Authentication.
-3. Manage of accounts.
-4. Notifications for accounts.
-
-## Installation
-
-Provide code examples and explanations of how to get the project.
+5. For run the project use php -S localhost:8008 -t public.
 
 ## API Reference
 

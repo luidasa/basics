@@ -1,9 +1,9 @@
 <?php
 
-use App\Middleware\AuthMiddleware;
-use App\Middleware\GuestMiddleware;
-use App\Middleware\AutorizationMiddleware;
-use App\Middleware\NotificationMiddleware;
+use VisionWap\Middleware\AuthMiddleware;
+use VisionWap\Middleware\GuestMiddleware;
+use VisionWap\Middleware\AutorizationMiddleware;
+use VisionWap\Middleware\NotificationMiddleware;
 
 // Routes
 $app->get('/about', 'AboutAction:aboutPage')->setName('about');

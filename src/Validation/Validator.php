@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Validation;
+namespace VisionWap\Validation;
 
 use Respect\Validation\Validator as Respect;
 use Respect\Validation\Exceptions\NestedValidationException;

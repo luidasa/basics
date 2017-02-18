@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Middleware;
+namespace VisionWap\Middleware;
 
 class Middleware
 {

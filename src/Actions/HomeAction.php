@@ -1,13 +1,10 @@
 <?php
 
-namespace App\Actions;
+namespace VisionWap\Actions;
 
 use Slim\Http\Request;
 use Slim\Http\Response;
 
-use App\Models\Entrada;
-use App\Models\Salida;
-use App\Models\Producto;
 use Cartalyst\Sentinel\Users\EloquentUser as Usuario;
 
 
@@ -17,12 +14,6 @@ class HomeAction extends Action
   {
     $this->logger->info('Home Page Index dispached');
 
-    return $this->view->render($response, 'index.twig',
-    [
-      'ordenesEntrada'  => Entrada::count(),
-      'ordenesSalida'   => Salida::count(),
-      'usuarios'        => Usuario::count(),
-      'productos'       => Producto::count(),
-    ]);
+    return $this->view->render($response, 'index.twig');
   }
 }

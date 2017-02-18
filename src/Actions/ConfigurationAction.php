@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Actions;
+namespace VisionWap\Actions;
 
 use Slim\Http\Request;
 use Slim\Http\Response;
@@ -18,24 +18,19 @@ class ConfigurationAction extends Action
      */
     public function edit(Request $request, Response $response)
     {
-        $this->view->getEnvironment()->addGlobal('template', 'templatePage');
         return $this->view->render($response, 'configuration.twig');
     }
 
-    public function start(Request $request, Response $response, $args) {
-      $parameters = $request->getQueryParams();
-      $nombre = $parameters['nombre'];
-      $apellido = $parameters['apellido'];
-      $email = $parameters['email'];
-      $password = $parameters['password'];
+    public function postEdit(Request $request, Response $response)
+    {
+        return $this->view->render($response, 'configuration.twig');
+    }
 
-      drop();
-      create();
-      inicialize(
-        $nombre,
-        $apellido,
-        $email,
-        $password
-      );
+    public function getStart(Request $request, Response $response, $args) {
+
+    }
+
+    public function postStart(Request $request, Response $response, $args) {
+
     }
 }

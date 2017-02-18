@@ -101,47 +101,47 @@ $container['db'] = function (Container $c) use ($capsule) {
 // -----------------------------------------------------------------------------
 
 $container['HomeAction'] = function (Container $c) {
-    return new App\Actions\HomeAction($c);
+    return new VisionWap\Actions\HomeAction($c);
 };
 
 $container['AboutAction'] = function (Container $c) {
-    return new App\Actions\AboutAction($c);
+    return new VisionWap\Actions\AboutAction($c);
 };
 
 $container['ContactAction'] = function (Container $c) {
-    return new App\Actions\ContactAction($c);
+    return new VisionWap\Actions\ContactAction($c);
 };
 
 $container['AuthAction'] = function (Container $c) {
-    return new App\Actions\AuthAction($c);
+    return new VisionWap\Actions\AuthAction($c);
 };
 
 $container['AccountAction'] = function (Container $c) {
-    return new App\Actions\AccountAction($c);
+    return new VisionWap\Actions\AccountAction($c);
 };
 
 $container['RegistrationOrderAction'] = function (Container $c) {
-    return new App\Actions\RegistrationOrderAction($c);
+    return new VisionWap\Actions\RegistrationOrderAction($c);
 };
 
 $container['ExtractionAction'] = function (Container $c) {
-    return new App\Actions\ExtractionAction($c);
+    return new VisionWap\Actions\ExtractionAction($c);
 };
 
 $container['SearchAction'] = function (Container $c) {
-    return new App\Actions\SearchAction($c);
+    return new VisionWap\Actions\SearchAction($c);
 };
 
 $container['ShipmentAction'] = function (Container $c) {
-    return new App\Actions\ShipmentAction($c);
+    return new VisionWap\Actions\ShipmentAction($c);
 };
 
 $container['ConfigurationAction'] = function (Container $c) {
-    return new App\Actions\ConfigurationAction($c);
+    return new VisionWap\Actions\ConfigurationAction($c);
 };
 
 $container['AuthNotifications'] = function (Container $c) {
-    return new App\Notification\AuthNotification($c);
+    return new VisionWap\Notification\AuthNotification($c);
 };
 
 $container['Activation'] = function (Container $c) {
@@ -153,21 +153,21 @@ $container['Reminder'] = function (Container $c) {
 };
 
 $container['workflow'] = function(Container $c) {
-  return new App\Workflow\WorkflowEngine($c);
+  return new VisionWap\Workflow\WorkflowEngine($c);
 };
 
 $container['validator'] = function () {
-    return new App\Validation\Validator();
+    return new VisionWap\Validation\Validator();
 };
 
 $container['mailer'] = function (Container $c) {
   $settings = $c->get('settings');
-  return new App\Notification\EmailDispatcher($settings['email']);
+  return new VisionWap\Notification\EmailDispatcher($settings['email']);
 };
 
-$app->add(new \App\Middleware\ValidationErrorMiddleware($container));
-$app->add(new \App\Middleware\OldInputMiddleware($container));
-$app->add(new \App\Middleware\CsrfViewMiddleware($container));
+$app->add(new \VisionWap\Middleware\ValidationErrorMiddleware($container));
+$app->add(new \VisionWap\Middleware\OldInputMiddleware($container));
+$app->add(new \VisionWap\Middleware\CsrfViewMiddleware($container));
 //$app->add($container->csrf);
 
-v::with('App\\Validation\\Rules');
+v::with('VisionWap\\Validation\\Rules');

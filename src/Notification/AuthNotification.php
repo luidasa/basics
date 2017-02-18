@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Notification;
+namespace \VisionWap\Actions;
 
 /**
   Se encarga de coordinar las notificaciones por email que se realizan a los usuarios.
